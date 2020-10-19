@@ -1,6 +1,6 @@
 from flask import render_template
-from newsapi import NewsApiClient
 from app import app
+from newsapi import NewsApiClient
 
 # Views
 @app.route('/')
@@ -9,19 +9,31 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    return render_template('index.html')
+    newsapi=NewsApiClient(api_key="6fe95eb68575443aa7b95cf911941266")
 
-from .request import get_news
+    topheadlins=newsapi.get_top_headlines(sources="abc-news-au")
 
-@app.route('/')
-def news():
+    articles=topheadlins['articles']
+    desc=[]
+    news=[] 
+    img=[]
+
+    for i in range(len(articles)):
+        myarticles=articles[i]
+
+        news.append(myarticles(['title']))
+        desc.append(myarticles(['description']))
+        img.append(myarticles(['urlToImage']))
+
+        mylist=zip(news,desc,img)
+
+    return render_template('index.html',context=mylist)
+
+
+@app.route('/movie/<movie_id>')
+def movie(movie_id):
 
     '''
-    View root page function that returns the index page and its data
+    View news page function that returns the news details page and its data
     '''
-
-    # Getting trending news
-    sources_news = get_news('trending')
-    print(sources_news)
-    title = 'Home - Trending news'
-    return render_template('index.html', title = title,sources = sources_news)
+    return render_template('news.html',id = movie_id)
