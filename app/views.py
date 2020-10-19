@@ -1,4 +1,5 @@
 from flask import render_template
+from newsapi import NewsApiClient
 from app import app
 
 # Views
