@@ -1,12 +1,12 @@
 from app import app
 import urllib.request,json
-from .models import source,article
+from .models import sources,articles
 from newsapi import NewsApiClient
 
-News = news.Newsource
+Source = sources.Source
 
 # Getting api key
-api_key = app.config['6fe95eb68575443aa7b95cf911941266']
+api_key = app.config['api_key']
 
 # Getting the movie base url
 base_url = app.config["NEWS_API_BASE_URL"]
@@ -23,10 +23,5 @@ def get_source(category):
 
         articles_list = None
 
-        if sources_response['results']:
-            movie_results_list = sources_response['results']
-            movie_results = process_results(movie_results_list)
-
-
-    return movie_results
+     
 
