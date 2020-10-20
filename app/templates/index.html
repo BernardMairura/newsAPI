@@ -12,8 +12,9 @@
             <!-- Trending news section  -->
             <h3> Trending News</h3>
              <ul>
-                {% for sources_news in popular %}
-                    <li>{{ sources_news.title}}</li>
+                {% for new, des, i in context %}
+                <img src="{{i}}" alt="">
+                    <li>{{ new}}</li>
                 {% endfor %}
             </ul>
      </body>
