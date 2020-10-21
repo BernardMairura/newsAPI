@@ -1,21 +1,23 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> News Review website </title>
-        {% endif %}
-    </head>
-    <body>
-            <!-- Trending news section  -->
-            <h3> Trending News</h3>
-             <ul>
-                {% for new, des, i in context %}
-                <img src="{{i}}" alt="">
-                    <li>{{ new}}</li>
-                {% endfor %}
-            </ul>
-     </body>
-</html>
+{%extends 'base.html'%}
+<!-- Styles block -->
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+<!-- Content block -->
+{%block page_content%}
+        <div class="row">
+            {%for source in sources%}
+            <div class="col-md-4 col-lg-3 my-3">
+                 <div class="card h-100">
+                      <div class="card-body">
+                        <a href= "{{url_for('.source',name = source.id)}}" class="card-title">{{source.name}}</a>
+                        <p class="card-text">{{source.desc | truncate(50,True)}}</p>
+                      </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+
+{%endblock page_content%}
