@@ -1,10 +1,10 @@
 from flask import Flask
 from config import config_options
 from flask_bootstrap import Bootstrap
-from flask_moment import Moment
+
 
 bootstrap = Bootstrap()
-moment=Moment()
+
 
 
 
@@ -16,7 +16,7 @@ def create_app(config_name):
 
     #initialize app extensions
     bootstrap.init_app(app)
-    moment.init_app(app)
+    
 
     # Register the blueprint
     from .main import main as main_blueprint
