@@ -57,7 +57,7 @@ def get_specific_source(source_id):
             author = article['author']
             image_url = article['urlToImage']
             source = article['source']
-            date_published= parse(article['publishedAt']).datetime()
+            date_published= parse(article['publishedAt'])
             article_url= article['url']
 
             if image_url:
