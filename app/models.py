@@ -5,21 +5,21 @@ class Source:
     def __init__(self, id, name,description):
         self.id=id
         self.name=name
-        self.description=description
+        self.desc=description
 
 
 
-class Articles:
+class Article:
     '''
     News class to define News Objects
     '''
 
-    def __init__(self,author,title,description,published_at,url,url_to_image,source):
+    def __init__(self,author,title,description,article_url,image_url,date_published,source):
 
         self.title=title
         self.author=author       
         self.description=description
-        self.published_at=published_at
-        self.url=url
-        self.url_to_image=url_to_image
+        self.article_url=article_url
+        self.image_url=image_url
+        self.date_published=date_published
         self.source=source
