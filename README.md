@@ -46,6 +46,6 @@ For support and any queries relating to this project please reach us through;
 
 ### License and Copyright
 
-Copyright (c) {www.QuotesApp.com, Moringa School, year 2020}
+Copyright (c) {www.NewsApp.com, Moringa School, year 2020}
 
 License under the [MIT License](LICENSE)
