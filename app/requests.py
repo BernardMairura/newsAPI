@@ -53,14 +53,16 @@ def get_specific_source(source_id):
     if source_response['articles']:
         new_list = []
         for article in source_response['articles']:
+
             title = article['title']
             author = article['author']
             image_url = article['urlToImage']
-            source = article['source']
             article_url= article['url']
+            source = article['source']
+            
 
             if image_url:
-                new_article = Article(title, author, image_url, article_url,source)
+                new_article = Article(title,author,image_url,article_url,source)
                 new_list.append(new_article)
 
         articles_list = new_list
