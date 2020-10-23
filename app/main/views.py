@@ -18,4 +18,4 @@ def source(name):
     else:
         source = None
     title = f"{name} articles"
-    return render_template('source_articles.html', articles = articles_list, title=title, source = source)
+    return render_template('news.html', articles = articles_list, title=title, source = source)
