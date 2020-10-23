@@ -15,3 +15,7 @@ h1{
 #zero{
     font-family: 'Saira Stencil One', cursive !important;
 }
+
+img{
+    padding: 10px !important;
+}
